@@ -1,0 +1,13 @@
+with-expecter: true
+outpkg: "mocks"
+
+config:
+  mockname: "Mock{{.InterfaceName | firstUpper}}"
+
+packages:
+  github.com/iTukaev/backand_academy_example/internal/application:
+    config:
+      dir: "{{.InterfaceDir}}/mocks"
+      filename: "{{.InterfaceName | snakecase}}.go"
+    interfaces:
+      ioAdapter:
